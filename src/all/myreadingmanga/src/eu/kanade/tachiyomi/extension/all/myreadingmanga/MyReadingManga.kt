@@ -17,12 +17,7 @@ open class MyReadingManga(override val lang: String) : ParsedHttpSource() {
 
     override val baseUrl = "https://myreadingmanga.info"
 
-    override val client: OkHttpClient = network.cloudflareClient.newBuilder()
-            .connectTimeout(1, TimeUnit.MINUTES)
-            .readTimeout(1, TimeUnit.MINUTES)
-            .retryOnConnectionFailure(true)
-            .followRedirects(true)
-            .build()!!
+    override val client: OkHttpClient = network.cloudflareClient
 
     override val supportsLatest = false
 
